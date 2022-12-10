@@ -15,12 +15,19 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+:root {
+  --header: #242526;
+  --headerSecondary: #3a3b3c;
+}
+
+input[type="text"] {
+  outline: none;
+}
+
+.container {
+  padding: 0 80px;
+}
+
+body {
+  background: #ddd;
 }

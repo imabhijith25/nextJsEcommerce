@@ -1,0 +1,103 @@
+.header {
+
+    background: var(--header);
+    color: white;
+    width: 100%;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+.logoRegion h4 {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 700 !important;
+    font-size: 20px;
+}
+
+.searchAndCard {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.searchAndCard input[type="text"] {
+    background-color: var(--headerSecondary);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    width: 200px;
+    transition: all 0.5s;
+
+}
+
+.searchAndCard input[type="text"]:focus {
+    width: 350px;
+}
+
+.shoppingCart {
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.profilePic {
+    height: 48px;
+    width: 48px;
+    position: relative;
+}
+
+.dropDown {
+    position: absolute;
+    margin-top: 5px;
+    border-radius: 5px;
+    height: 200px;
+    right: 0px;
+    width: 200px;
+    background-color: var(--headerSecondary);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+    animation: openUp .3s both;
+}
+
+
+.profilePic img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.list {
+    list-style: none;
+    margin: 20px 0px;
+    padding: 0px;
+    font-size: 14px;
+}
+
+.list li {
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.list li:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+@keyframes openUp {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 200px;
+    }
+}
