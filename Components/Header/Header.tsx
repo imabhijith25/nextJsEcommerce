@@ -1,8 +1,9 @@
 import styles from "./Header.module.css";
 import { ShoppingCart } from "react-feather";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const Header = () => {
     const [showDrop, setShowDrop] = useState<boolean>(false);
+    const ref = useRef<HTMLDivElement>(null);
     let link: string =
         "https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80";
 
@@ -28,6 +29,15 @@ const Header = () => {
             url: "/link",
         },
     ];
+
+    useEffect(() => {
+        const drp: HTMLElement | null = document.getElementById("dropdownArea");
+        document.addEventListener("click", (e: any) => {
+            if (!drp?.contains(e.target)) {
+                setShowDrop(false);
+            }
+        });
+    }, [ref]);
     return (
         <div className={styles.header + " container"}>
             <div className={styles.navBar}>
@@ -41,7 +51,7 @@ const Header = () => {
                     <div className={styles.shoppingCart}>
                         <ShoppingCart color="white" size={22} />
                     </div>
-                    <div className={styles.profilePic}>
+                    <div className={styles.profilePic} id="dropdownArea">
                         <img
                             src={link}
                             alt="profile"

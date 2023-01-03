@@ -1,0 +1,65 @@
+.row {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    border: 2px solid #d4d3d3;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.rowContainer {
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    transition: all 0.5s;
+}
+
+.rowItems {
+    width: 25%;
+
+    height: 200px;
+    display: inline-block;
+}
+
+.rowItems img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.nexts {
+    position: absolute;
+    z-index: 6;
+    right: 0px;
+    height: 200px;
+    background: none;
+    border: none;
+    padding: 10px;
+}
+
+.backs {
+    position: absolute;
+    border: none;
+    padding: 10px;
+    z-index: 6;
+    left: 0px;
+    height: 200px;
+    background: none;
+
+
+}
+
+.backs:hover {
+    background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgba(230, 230, 230, 0.658));
+    animation: shadowback .5s forwards;
+}
+
+.nexts:hover {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(230, 230, 230, 0.733));
+    animation: shadowback .5s forwards;
+}

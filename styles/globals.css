@@ -24,10 +24,25 @@ input[type="text"] {
   outline: none;
 }
 
-.container {
-  padding: 0 80px;
+
+
+button {
+  cursor: pointer;
 }
 
 body {
   background: #ddd;
+}
+
+.middleContainer {
+  margin: 0 auto;
+  max-width: 1380px;
+
+}
+
+.button {
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 700;
+  font-family: 'Zilla Slab', serif;
 }

@@ -1,5 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
+import Footer from "../Components/Footer/Footer";
+import Horizontal from "../Components/HorizontalSlider/Horizontal";
+import ImageSlider from "../Components/ImageSlider/ImageSlider";
+import Mktbanner from "../Components/MktBanner/Mktbanner";
+import Trending from "../Components/Trending/Trending";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -11,18 +16,13 @@ export default function Home() {
                     name="description"
                     content="mktplc- Find the latest fashion here"
                 />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="true"
-                />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap"
-                    rel="stylesheet"
-                />
+
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <ImageSlider />
+            <Horizontal />
+            <Trending />
+            <Mktbanner />
         </div>
     );
 }
