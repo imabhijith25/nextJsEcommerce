@@ -1,0 +1,41 @@
+.container {
+    position: relative;
+    padding-left: 24px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 2px solid;
+    border-radius: 4px;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    border: 2px solid rgba(172, 34, 158, 1);
+    height: 8px;
+    width: 4px;
+    border-width: 0px 3px 3px 0px;
+    transform: rotate(90deg);
+    opacity: 0;
+    transition: all .2s;
+}
+
+.input:checked~.checkmark::after {
+    display: block;
+    opacity: 1;
+    transform: rotate(45deg);
+}

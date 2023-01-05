@@ -63,3 +63,26 @@
     background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(230, 230, 230, 0.733));
     animation: shadowback .5s forwards;
 }
+
+@media only screen and (max-width: 800px) {
+
+    .textHolder {
+        width: 100%;
+    }
+
+    .row {
+        overflow: scroll;
+    }
+
+    .nexts {
+        display: none;
+    }
+
+    .backs {
+        display: none;
+    }
+
+    .rowItems {
+        width: 50%;
+    }
+}

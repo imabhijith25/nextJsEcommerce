@@ -128,3 +128,26 @@
         opacity: 1;
     }
 }
+
+
+@media only screen and (max-width: 1358px) {
+    .imageContainer {
+        margin-top: 0px
+    }
+
+    .container {
+        border-radius: 0px;
+    }
+
+    .textHolder {
+        width: 100;
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+
+    .textHolder {
+        width: 100%;
+    }
+}

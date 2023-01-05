@@ -103,3 +103,18 @@
         height: 200px;
     }
 }
+
+@media only screen and (max-width: 600px) {
+
+    .header {
+        padding: 0px 5px;
+    }
+
+    .searchAndCard {
+        gap: 10px;
+    }
+
+    .searchAndCard input[type="text"]:focus {
+        width: 200px;
+    }
+}
