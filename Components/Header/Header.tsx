@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { ShoppingCart } from "react-feather";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 const Header = () => {
     const [showDrop, setShowDrop] = useState<boolean>(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +43,9 @@ const Header = () => {
         <div className={styles.header + " container"}>
             <div className={styles.navBar}>
                 <div className={styles.logoRegion}>
-                    <h4>mktplc</h4>
+                    <Link href={"/"}>
+                        <h4>mktplc</h4>
+                    </Link>
                 </div>
                 <div className={styles.searchAndCard}>
                     <div>

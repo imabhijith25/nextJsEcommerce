@@ -1,5 +1,7 @@
 import styles from "./Mktbanner.module.css";
+import { useRouter } from "next/navigation";
 const Mktbanner = (): JSX.Element | null => {
+    const router = useRouter();
     const imageAddress: string =
         "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=420&q=80";
     return (
@@ -20,7 +22,14 @@ const Mktbanner = (): JSX.Element | null => {
                             used
                         </p>
                     </div>
-                    <button className="button">Go to market</button>
+                    <button
+                        className="button"
+                        onClick={() => {
+                            router.push("/marketplace");
+                        }}
+                    >
+                        Go to market
+                    </button>
                 </div>
             </div>
         </div>

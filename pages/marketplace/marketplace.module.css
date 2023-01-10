@@ -1,0 +1,58 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.header h3 {
+    font-family: 'Zilla Slab', serif;
+}
+
+.filterArea {
+
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 10px;
+
+}
+
+.dropContainer {
+    width: 30%;
+}
+
+.itemContainer {
+    display: flex;
+    margin-top: 30px;
+}
+
+.filter {
+    width: 10%;
+}
+
+.check {
+    margin-bottom: 14px;
+}
+
+.itemsArea {
+    width: 100%;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.cardArea {
+
+    width: 25%;
+    padding: 10px 15px;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .cardArea {
+        width: 50% !important;
+    }
+}
