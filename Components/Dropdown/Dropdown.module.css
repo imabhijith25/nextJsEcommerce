@@ -5,7 +5,7 @@
     border: 2px solid;
     font-family: 'Zilla Slab', serif;
     font-weight: 500;
-
+    cursor: pointer;
     border-radius: 6px;
     justify-content: space-between;
 }

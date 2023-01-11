@@ -100,7 +100,11 @@ const Horizontal = (): JSX.Element | null => {
                 </button>
                 <div className={styles.rowContainer} id="rowcontainer">
                     {sliderImage.map((item, index) => (
-                        <div className={styles.rowItems} id="rowItems">
+                        <div
+                            className={styles.rowItems}
+                            id="rowItems"
+                            key={index}
+                        >
                             <img src={item.img} alt="display"></img>
                         </div>
                     ))}

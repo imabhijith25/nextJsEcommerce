@@ -46,6 +46,7 @@ const Dropdown = ({ label, items }: DropdownValues) => {
             >
                 {items.map((item, index) => (
                     <div
+                        key={index}
                         className={styles.item}
                         onClick={() => {
                             setSelected(item);

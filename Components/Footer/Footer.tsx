@@ -26,7 +26,9 @@ const Footer = (): JSX.Element | null => {
                             </div>
                             <div className={styles.links}>
                                 {validObj?.map((item, index) => (
-                                    <Link href="/">{item}</Link>
+                                    <Link href="/" key={index}>
+                                        {item}
+                                    </Link>
                                 ))}
                             </div>
                         </div>

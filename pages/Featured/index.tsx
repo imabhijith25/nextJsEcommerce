@@ -55,7 +55,7 @@ export default function Featured() {
             <div className="middleContainer">
                 <div className={styles.cardContainer}>
                     {items.map((item, index) => (
-                        <div className={styles.cardArea}>
+                        <div className={styles.cardArea} key={index}>
                             <Card source={item} />
                         </div>
                     ))}

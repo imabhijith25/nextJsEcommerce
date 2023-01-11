@@ -38,7 +38,7 @@ const Trending = (): JSX.Element | null => {
                 ></Title>
                 <div className={styles.grids}>
                     {trendingValues.map((item, index) => (
-                        <div className={styles.carCon}>
+                        <div className={styles.carCon} key={index}>
                             <div
                                 className={styles.card}
                                 key={index}
