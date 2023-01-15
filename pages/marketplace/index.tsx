@@ -4,8 +4,15 @@ import Dropdown from "../../Components/Dropdown/Dropdown";
 import { instance } from "../../RestAPI/API";
 import styles from "./marketplace.module.css";
 import Card from "../../Components/Card/Card";
+import axios from "axios";
+import FilterIcon from "../../Icons/Filter";
+import Filter from "./Filter";
+import Modal from "../../Components/Modals/Modals";
 const Marketplace = () => {
     const items: string[] = ["Low to High", "High to Low"];
+    const controller = new AbortController();
+    const [filterModal, setFilterModal] = useState(false);
+    const [select, setSelect] = useState<string>("");
     const [data, setData] = useState<Array<any>>([]);
     const [category, setCategory] = useState<Array<any>>([
         {
@@ -26,8 +33,12 @@ const Marketplace = () => {
     ]);
 
     useEffect(() => {
+        console.log("called");
         getAssets();
-    }, [category]);
+        return () => {
+            controller.abort();
+        };
+    }, [category, select]);
 
     const getAssets = () => {
         let checkboxSelected: string = "";
@@ -40,9 +51,16 @@ const Marketplace = () => {
         if (checkboxSelected) {
             baseURL = baseURL + "/category/" + checkboxSelected;
         }
-        instance.get(baseURL + "?limit=8").then((res) => {
-            setData(res?.data);
-        });
+        instance
+            .get(baseURL + "?limit=8&&sort=" + select, {
+                signal: controller.signal,
+            })
+            .then((res) => {
+                setData(res?.data);
+            })
+            .catch((err) => {
+                console.log("Request Aborted");
+            });
     };
 
     const handleCheckBox = (index: number) => {
@@ -60,8 +78,58 @@ const Marketplace = () => {
         });
         setCategory(m);
     };
+
+    const handleDropDownChanges = (selected: string) => {
+        console.log(selected);
+        if (selected == "Low to High") {
+            console.log("ASC");
+            setSelect("asc");
+        } else if (selected == "High to Low") {
+            console.log("desC");
+            setSelect("desc");
+        }
+    };
     return (
         <>
+            {filterModal && (
+                <>
+                    <Modal
+                        close={() => {
+                            setFilterModal(false);
+                        }}
+                    >
+                        <div className={styles.modalContainer}>
+                            <h4>Filter marketplace</h4>
+                            <div className={styles.modalDrop}>
+                                <Dropdown
+                                    label="Price Filter"
+                                    items={items}
+                                    onSelected={handleDropDownChanges}
+                                />
+                            </div>
+                            {category.map((item, index) => (
+                                <div className={styles.check} key={index}>
+                                    <Checkbox
+                                        onClickHandler={() => {
+                                            handleCheckBox(index);
+                                        }}
+                                        text={item.name}
+                                        selected={item?.selected}
+                                    />
+                                </div>
+                            ))}
+                            <button
+                                className={styles.apply}
+                                onClick={() => {
+                                    setFilterModal(false);
+                                }}
+                            >
+                                Apply
+                            </button>
+                        </div>
+                    </Modal>
+                </>
+            )}
             <div className="middleContainer">
                 <div className={styles.header}>
                     <div>
@@ -69,8 +137,23 @@ const Marketplace = () => {
                     </div>
                     <div className={styles.filterArea}>
                         <div className={styles.dropContainer}>
-                            <Dropdown label="Price Filter" items={items} />
+                            <Dropdown
+                                label="Price Filter"
+                                items={items}
+                                onSelected={handleDropDownChanges}
+                            />
                         </div>
+                    </div>
+                </div>
+                <div className={styles.mobileFilter}>
+                    <div
+                        className={styles.iconArea}
+                        onClick={() => {
+                            setFilterModal(true);
+                        }}
+                    >
+                        <FilterIcon />
+                        <label>Filter</label>
                     </div>
                 </div>
 

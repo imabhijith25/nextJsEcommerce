@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DropArrow from "../../Icons/Dropdown";
 import styles from "./Dropdown.module.css";
 interface DropdownValues {
+    onSelected(arg: string): void;
     label: string;
     items: string[];
 }
-const Dropdown = ({ label, items }: DropdownValues) => {
+const Dropdown = ({ label, items, onSelected }: DropdownValues) => {
     const [selected, setSelected] = useState<string>("Select");
 
     const [open, setOpen] = useState<boolean>(false);
@@ -13,6 +14,11 @@ const Dropdown = ({ label, items }: DropdownValues) => {
     const calculateHeightoFDropdown = () => {
         return String(items?.length * 40);
     };
+    useEffect(() => {
+        if (selected != "Select") {
+            onSelected(selected);
+        }
+    }, [selected]);
     return (
         <div className={styles.container}>
             <label>{label}</label>
