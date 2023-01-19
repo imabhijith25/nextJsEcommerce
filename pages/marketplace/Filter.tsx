@@ -3,11 +3,9 @@ import styles from "./marketplace.module.css";
 
 const Filter = () => {
     return (
-        <Modal>
-            <div>
-                <p>hi</p>
-            </div>
-        </Modal>
+        <>
+            <p>hii</p>
+        </>
     );
 };
 
